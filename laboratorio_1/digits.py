@@ -9,8 +9,10 @@ import cv2
 import os
 import numpy as np
 import random
+import sys
 
-def load_images(path_images, fout):
+def load_images(path_images, fout, X, y):
+	print(X,type(X), Y, type(Y))
 	print ('Loading images...')
 	archives = os.listdir(path_images)
 	images = []
@@ -26,7 +28,7 @@ def load_images(path_images, fout):
 		for archive in archives:
 			if archive == image_name:
 				image = cv2.imread(path_images +'/'+ archive, 0)
-				rawpixel(image, label[0], fout)
+				rawpixel(image, label[0], fout, X, Y)
 				
 				#images.append((image, label))
 
@@ -38,11 +40,11 @@ def load_images(path_images, fout):
 #
 #########################################################
 	
-def rawpixel(image, label, fout):
+def rawpixel(image, label, fout, X, Y):
 	
 	## novas dimensoes
-	X= 20
-	Y= 10
+	# X= 20
+	# Y= 10
 	
 	image = cv2.resize(image, (X,Y) )
 	#cv2.imshow("image", image )
@@ -69,10 +71,15 @@ def rawpixel(image, label, fout):
 
 if __name__ == "__main__":
 
+	X = sys.argv[1]
+	Y = sys.argv[2]
 
-	fout = open("features.txt","w")
+	fout = open("features_"+X+"-"+Y+".txt","w")
 	
-	images = load_images('digits/data', fout)
+	X = int(X)
+	Y = int(Y)
+
+	images = load_images('digits/data', fout, X, Y)
 
 	fout.close
 	
