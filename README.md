@@ -1,4 +1,4 @@
-Impactos da Representação
+<H1>Impactos da Representação<\H1>
 
 O script digits.py extrai a represenação mais simples possível de uma base de dados dígitos manuscritos. Para cada posição da imagem, verifica-se o valor de intensidade do pixel e se esse valor for > 128, a característica é igual a 1, caso contrário 0. A imagens tem tamanho variável e como os classificadores precisam de um vetor de tamanho fixo, as imagens são normalizadas utilizando as variáveis X e Y dentro da função rawpixel. Após a execução do programa, um arquivo chamado features.txt é criado no diretório corrente. Esse arquivo contem 2000 linhas no formato
 
@@ -12,7 +12,7 @@ Para a sua melhor solução, verifique se é possível melhorar o resultados mud
 
 Escreva uma breve relatório reportando seus experimentos e entregue em formato PDF.
 
-IMPORTANTE:
+<H2>IMPORTANTE:<\H2>
 
     Somente arquivos em PDF serão corrigidos. 
     Respeite o prazo de entrega. O moodle não aceitará envios após a Data Limite.
