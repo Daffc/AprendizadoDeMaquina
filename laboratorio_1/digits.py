@@ -12,7 +12,6 @@ import random
 import sys
 
 def load_images(path_images, fout, X, y):
-	print(X,type(X), Y, type(Y))
 	print ('Loading images...')
 	archives = os.listdir(path_images)
 	images = []
