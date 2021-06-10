@@ -55,10 +55,11 @@ def main():
 
     # loads data
     print ("Resampling...")
-    rs_X_train, rs_y_train  = resample(ori_X_train, ori_y_train, n_samples=dt_train_size)
-    
-    rs_X_train_dense = rs_X_train.todense()
+
+    rs_X_train_dense = ori_X_train.tocsr()[:dt_train_size, :].todense()
+    rs_y_train = ori_y_train[:dt_train_size]
     X_test_dense = X_test.todense()
+
 
     # KNN
     with open(f'saidas/knn_{dt_train_size}.txt', 'w') as f_out:
